@@ -2,11 +2,11 @@
 
 A liquid tag to include a file from its path relate to Jekyll's source folder
 
-Syntax: {% include_absolute path %}
+Syntax: `{% include_absolute path %}`
 
 ## Installation
 
-Copy include_absolute.rb into /_plugins
+Copy `include_absolute.rb` into `/_plugins`
 
 ## Examples
 
