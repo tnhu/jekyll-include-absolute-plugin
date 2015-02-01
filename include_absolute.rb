@@ -17,7 +17,7 @@ module Jekyll
 
     def render(context)
       source = File.expand_path(context.registers[:site].config['source']).freeze
-      path   = File.join(source, file)
+      path   = File.join(source, @file)
 
       begin
         partial = Liquid::Template.parse(read_file(path, context))
