@@ -9,13 +9,30 @@ module Jekyll
   end
 
   class IncludeAbsoluteTag < Liquid::Tag
+    VARIABLE_SYNTAX = %r!
+        (?<variable>[^{]*(\{\{\s*[\w\-\.]+\s*(\|.*)?\}\}[^\s{}]*)+)
+        (?<params>.*)
+      !x
+
     def initialize(tag_name, markup, tokens)
       super
 
-      @file   = markup.strip
+      @file = markup.strip
+    end
+
+    # Render the variable if required (@see https://goo.gl/N5sMV3)
+    def render_variable(context)
+      if @file.match(VARIABLE_SYNTAX)
+        partial = context.registers[:site]
+          .liquid_renderer
+          .file("(variable)")
+          .parse(@file)
+        partial.render!(context)
+      end
     end
 
     def render(context)
+      @file  = render_variable(context) || @file
       source = File.expand_path(context.registers[:site].config['source']).freeze
       path   = File.join(source, @file)
 
