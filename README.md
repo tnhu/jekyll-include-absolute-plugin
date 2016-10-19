@@ -1,6 +1,6 @@
 # Jekyll include_absolute Tag
 
-A liquid tag to include a file from its path relate to Jekyll's source folder. Why? Because Jekyll's built-in `include` tag does not support including files outside of `_includes` folder.
+A Jekyll's liquid tag plugin to include a file from its path relative to Jekyll's source folder. Why? Because Jekyll's built-in `include` tag does not support including files outside of `_includes` folder.
 
 Syntax: `{% include_absolute path %}`
 
