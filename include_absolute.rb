@@ -32,9 +32,9 @@ module Jekyll
     end
 
     def render(context)
-      @file  = render_variable(context) || @file
+      file  = render_variable(context) || @file
       source = File.expand_path(context.registers[:site].config['source']).freeze
-      path   = File.join(source, @file)
+      path   = File.join(source, file)
 
       begin
         partial = Liquid::Template.parse(read_file(path, context))
