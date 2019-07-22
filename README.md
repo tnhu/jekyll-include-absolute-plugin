@@ -6,24 +6,20 @@ Syntax: `{% include_absolute path %}`
 
 ## Installation
 
-Copy `include_absolute.rb` into `/_plugins`
+Copy `include_absolute.rb` into `/_plugins`.
 
 ## Examples
 
-js/common.js
-
+With this plugin you can include only a file.
 ```
-{% include_absolute js/jquery.js %}
-{% include_absolute js/bootstrap.js %}
+{% include_absolute '../../folder/outside/jekyll/foo.html' %}
+{% include_absolute 'other/folder/bar.js' %}
 ```
-
-css/common.css
-
+Or include the file and pass parameters to it.
 ```
-{% include_absolute css/bootstrap.css %}
-{% include_absolute css/ionicons.css %}
+{% include_absolute '../../folder/outside/jekyll/foo.html' param1='yes' param2='green' %}
 ```
 
 ## License
 
-MIT
+[MIT](./LICENSE)
